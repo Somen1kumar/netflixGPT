@@ -1,0 +1,23 @@
+# Netflix GPT
+
+- Create react app
+- Configured Tailwindcss
+
+
+# Features 
+
+- Login/Logout 
+    - SignIn /SIgnUp form
+    - redirect to browse page
+- Browse after authentication
+    - Header
+    - Main Movie
+        - Trailer in bg
+        - Title and description
+        - Movie Suggestions
+            - 
+
+…or push an existing repository from the command line
+git remote add origin https://github.coT.git
+git branch -M main
+git push -u origin main
