@@ -1,10 +1,9 @@
 import './App.css';
+import BodyContainer from './BodyContainer';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='m-2 bg-slate-400'>Hello SOmen</h1>
-    </div>
+    <BodyContainer />
   );
 }
 
