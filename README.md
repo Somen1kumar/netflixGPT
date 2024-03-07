@@ -39,6 +39,7 @@ Signout functionality is backed in.
 - and call the videoAPI by passing the movie id and get the list
 - save in state and now using the key we append the key in the youtube video player
 - using the embaded and done the style.
+- TMDB password:- K1234567890s Somenkr
 
 # Features 
 

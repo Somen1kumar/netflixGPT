@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { FETCH_USER_AUTHENTICATION, MOVIELISTURL } from '../utils/constants';
-import { addMovieReducer } from '../utils/movieReducer';
+import { FETCH_USER_AUTHENTICATION, MOVIELISTURL, UPCOMINGMOVIE, TOP_RATED } from '../utils/constants';
+import { addMovieReducer, addPopularMovie, addTopRatedMovie } from '../utils/movieReducer';
 
 const useMovieList = () => {
     const dispatch = useDispatch();
@@ -9,17 +9,29 @@ const useMovieList = () => {
   useEffect(() =>{
 
     try {
-      fetchMovies();
-      
+      fetchMovies(MOVIELISTURL, 'latest');
     } catch (error) {
       console.log(error);
     }
   },[]);
-  const fetchMovies = async () =>{
-    const fetchMovie= await fetch(MOVIELISTURL, FETCH_USER_AUTHENTICATION);
+  const fetchMovies = async (movieURL, flag) =>{
+    const fetchMovie= await fetch(movieURL, FETCH_USER_AUTHENTICATION);
     const data = await fetchMovie.json();
-    //console.log(data.results); 
-    dispatch(addMovieReducer(data.results));
+    switch (flag) {
+      case 'latest':
+        dispatch(addMovieReducer(data.results));
+        fetchMovies(UPCOMINGMOVIE, 'upcoming');
+        break;
+      case 'upcoming': 
+        dispatch(addPopularMovie(data.results));
+        fetchMovies(TOP_RATED, 'topRated');
+        break;
+      case 'topRated':
+        dispatch(addTopRatedMovie(data.results));
+        break;
+      default: 
+        break;
+    }
   }
 }
 

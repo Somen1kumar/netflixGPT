@@ -5,11 +5,16 @@ import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { deleteUser } from '../../utils/reducer';
 import { auth } from '../../utils/firebase';
 import {addReducers} from '../../utils/reducer'
-import { BACKGROUND_IMAGE, LOGO_USER } from '../../utils/constants';
+import { BACKGROUND_IMAGE, ConfigLanguage, LOGO_USER } from '../../utils/constants';
+import { toggleSearchComponent } from '../../utils/gptSearchReducer';
+import { updateLanguageReducer } from '../../utils/configSlice';
+import configurations from '../../utils/config';
 
 
 const Header = () => {
     const {email,displayName} = useSelector(itr => itr.credentialHolder);
+    const toggleSearch = useSelector(itr => itr.GptLayoutSwitch.showGptLayout);
+    const configLanguage = useSelector(itr => itr.Language.configureLanguage);
     const loggedIn = !!email;
     const dispatch = useDispatch();
     const navigate = useNavigate(); 
@@ -47,6 +52,12 @@ const Header = () => {
             // An error happened.
           });
     }
+    const toggleToGptLayout = () => {
+      dispatch(toggleSearchComponent());
+    }
+    const LanguageChange =(e) => {
+      dispatch(updateLanguageReducer(e.target.value));
+    }
 
   return (
     <React.Fragment>
@@ -60,23 +71,42 @@ const Header = () => {
                 </div>
             </Link>
             <div className='mx-0 my-auto mr-8 flex'>
-                {displayName ? 
-                        <h4 className='pt-[3px] text-[16px] text-white'>{displayName}</h4> 
+                {!toggleSearch ? 
+                  <div>
+                      {loggedIn && <div className='flex flex-row'>
+                        <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md' onClick={toggleToGptLayout} >{configurations[configLanguage].GptSearchLabel}</button>
+                        {displayName && <h4 className='pt-[3px] text-[16px] text-white'>{displayName}</h4>} 
+                      </div>}
+                      </div>
                     :
-                        <select name="Language" defaultValue={'English'} id="language" className='p-[6px] desk:px-[26px] desk:py-[6px] bg-transparent text-white border border-white rounded-md' >
-                        <option className='text-black' value={'English'}>English</option>
-                        <option className='text-black' value={"Hindi"}>Hindi</option>
+                      <div className='flex flex-row'>
+                        <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md' onClick={toggleToGptLayout} >{configurations[configLanguage].HomePageLabel}</button>
+                      </div>
+                }
+                {(toggleSearch || !loggedIn) && 
+                  <div className='flex flex-row'>
+                    <select onChange={LanguageChange} name="Language" defaultValue={'en-US'} id="language" className='p-[6px] desk:px-[26px] desk:py-[6px] bg-transparent text-white border border-white rounded-md' >
+                        {/* <option className='text-black' value={'English'}>English</option>
+                        <option className='text-black' value={"Hindi"}>Hindi</option> */}
+                        {ConfigLanguage.map(itr => <option key={Object.keys(itr)[0]} className='text-black' value={itr[Object.keys(itr)[0]]}>{Object.keys(itr)[0]}</option>
+                        
+                        )}
                         </select>
+                  </div>
                 }
                 {!loggedIn ? <Link to={'/login'}>
                     <div className='ml-7 p-[6px] px-3 desk:px-[26px] desk:py-[6px] bg-Btn-Primary text-base desk:text-xl text-white rounded-[4px] font-serif' role='button'>
-                        SignIn
+                    {configurations[configLanguage].SignInLabel}
                     </div>
                 </Link>
                 :
+                    
+                  !toggleSearch && loggedIn ? 
                     <div onClick={signOutUser} className='ml-[10px] px-[12px] py-[6px] bg-Btn-Primary text-white rounded-[4px] font-serif' role='button'>
-                        SignOut
+                      {configurations[configLanguage].SignOutLabel}
                     </div>
+                    :
+                    ''
                 }
             </div>
         </div>

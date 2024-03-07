@@ -5,7 +5,9 @@ export const LOGO_USER = 'https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cf
 
 export const MOVIELISTURL = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=1&sort_by=popularity.desc';
 
+export const UPCOMINGMOVIE = 'https://api.themoviedb.org/3/movie/upcoming';
 
+export const TOP_RATED = 'https://api.themoviedb.org/3/movie/top_rated';
 export const FETCH_USER_AUTHENTICATION = {
       method: 'GET',
       headers: {
@@ -13,3 +15,17 @@ export const FETCH_USER_AUTHENTICATION = {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZGQ1ODAzMDE0MWYyMTc3MWUxNWNlNGZhY2I1YTlhNyIsInN1YiI6IjY1ZTYxMTExYTY3MjU0MDE4NWFlMGY5MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fXimPG9SUZQdeuJXkxHRbHxUmYhkIpMdC0jM2HOnJdc'
       }
     };
+
+export const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
+
+export const ConfigLanguage = [
+    {
+        'English': 'en-US'
+    },
+    {
+        'Hindi': 'en-IN'
+    },
+    {
+        'Dutch': 'en-DU'
+    }
+]
