@@ -52,29 +52,49 @@ const Header = () => {
             // An error happened.
           });
     }
+    const checkCurrentPage = () => {
+      if (typeof window!== 'undefined' && window.location && window.location.pathname !== '/browse') {
+        return false;
+      }
+      return true;
+    }
     const toggleToGptLayout = () => {
-      dispatch(toggleSearchComponent());
+      if(!checkCurrentPage()) {
+        navigate('/browse');
+      }
+      else {
+        dispatch(toggleSearchComponent());
+      }
     }
     const LanguageChange =(e) => {
       dispatch(updateLanguageReducer(e.target.value));
+    }
+    const InitialPage = () => {
+      console.log('loggedIn, ', email);
+      if(!!loggedIn) {
+        navigate('/browse');
+      }else {
+        navigate('/');
+      }
     }
 
   return (
     <React.Fragment>
         <div className='absolute w-full bg-gradient-to-b from-black flex justify-between z-[2]'>
-            <Link to='/'>
-                <div className='w-fit desktop:w-[330px] h-[55px] m-3'>
+            
+                <div className='w-fit desktop:w-[330px] h-[55px] m-3 cursor-pointer'>
                     <img src={LOGO_USER}
                     alt='logo'
                     className='h-16'
+                    onClick={InitialPage}
                     />
                 </div>
-            </Link>
-            <div className='mx-0 my-auto mr-8 flex'>
+            
+            <div className='mx-0 my-auto mr-8 tab:mr-16 flex desk:mr-4'>
                 {!toggleSearch ? 
                   <div>
                       {loggedIn && <div className='flex flex-row'>
-                        <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md' onClick={toggleToGptLayout} >{configurations[configLanguage].GptSearchLabel}</button>
+                        <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md hidden desk:block' onClick={toggleToGptLayout} >{!checkCurrentPage() ?configurations[configLanguage].HomePageLabel :  configurations[configLanguage].GptSearchLabel}</button>
                         {displayName && <h4 className='pt-[3px] text-[16px] text-white'>{displayName}</h4>} 
                       </div>}
                       </div>
@@ -86,8 +106,6 @@ const Header = () => {
                 {(toggleSearch || !loggedIn) && 
                   <div className='flex flex-row'>
                     <select onChange={LanguageChange} name="Language" defaultValue={'en-US'} id="language" className='p-[6px] desk:px-[26px] desk:py-[6px] bg-transparent text-white border border-white rounded-md' >
-                        {/* <option className='text-black' value={'English'}>English</option>
-                        <option className='text-black' value={"Hindi"}>Hindi</option> */}
                         {ConfigLanguage.map(itr => <option key={Object.keys(itr)[0]} className='text-black' value={itr[Object.keys(itr)[0]]}>{Object.keys(itr)[0]}</option>
                         
                         )}

@@ -12,7 +12,7 @@ const Index = (props) => {
             <div className='popular_block'>
                 <div className='flex w-max'>
                     {
-                        movieList.map(itr => <MovieCart key={itr.id} posterKey={itr.poster_path} title={itr.original_title} />)
+                        movieList.map(itr => <MovieCart key={itr.id} movie={itr} posterKey={itr.poster_path} original_title={itr.original_title} />)
                     }
                 </div>
             </div>

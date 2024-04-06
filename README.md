@@ -40,6 +40,13 @@ Signout functionality is backed in.
 - save in state and now using the key we append the key in the youtube video player
 - using the embaded and done the style.
 - TMDB password:- K1234567890s Somenkr
+- for Homepage:-
+    -Call the top rated movies,popular,upcoming api using useFetchMovies
+    -Paint it below the Youtube Video Player.
+- On click on the top Rated any Movie tile we will fetch that current movie by passing
+ the id of that card to the fetchCurrent Movie and paint the data with routing 
+ path: '/browse/:movieId'
+ -Now added the GPT layout of search Page
 
 # Features 
 

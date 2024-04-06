@@ -8,6 +8,9 @@ export const MOVIELISTURL = 'https://api.themoviedb.org/3/discover/movie?include
 export const UPCOMINGMOVIE = 'https://api.themoviedb.org/3/movie/upcoming';
 
 export const TOP_RATED = 'https://api.themoviedb.org/3/movie/top_rated';
+
+export const ACTOR_LIST_URL = 'https://api.themoviedb.org/3/movie/';
+export const POPULAR_MOVIES = 'https://api.themoviedb.org/3/movie/popular';
 export const FETCH_USER_AUTHENTICATION = {
       method: 'GET',
       headers: {
@@ -17,6 +20,8 @@ export const FETCH_USER_AUTHENTICATION = {
     };
 
 export const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
+export const SPECIFICMOVIEURL = 'https://image.tmdb.org/t/p/original';
+export const POSTER_URL = 'https://image.tmdb.org/t/p/original/';
 
 export const ConfigLanguage = [
     {

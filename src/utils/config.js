@@ -9,6 +9,7 @@ const configurations = {
         'SignInLabel': 'Sign In',
         'SignOutLabel' :'Sign out',
         'NowPlayingLabel' : 'Now Playing',
+        'PopularLabel': 'Popular',
         'UpcomingMoviesLabel' : 'Upcoming Movies',
         'TopRatedLabel' : 'Top Rated',
         'RegistrationLabel' : 'Registration',
@@ -17,7 +18,8 @@ const configurations = {
         'PlaceHolderPassword': 'Enter your password',
         'NetflixNewMessage': 'New to Netflix ?',
         'SignUpNowLabel' : 'SignUp Now',
-        'SubmitLabel': 'Submit'
+        'SubmitLabel': 'Submit',
+        'ReleaseDateLabel': 'Release Date'
         
     },
     'en-IN': {
@@ -28,6 +30,7 @@ const configurations = {
         'SignInLabel': 'दाखिल करना',
         'SignOutLabel' : 'साइन आउट',
         'NowPlayingLabel' : 'अभी चल रहा है',
+        'PopularLabel': 'लोकप्रिय',
         'UpcomingMoviesLabel' : 'आगामी फिल्में',
         'TopRatedLabel' : 'टॉप रेटेड',
         'RegistrationLabel' : 'पंजीकरण',
@@ -36,7 +39,8 @@ const configurations = {
         'PlaceHolderPassword': 'अपना पासवर्ड दर्ज करें',
         'NetflixNewMessage': 'नेटफ्लिक्स पर नया?',
         'SignUpNowLabel' : 'अभी साइन अप करें',
-        'SubmitLabel': 'जमा करना'
+        'SubmitLabel': 'जमा करना',
+        'ReleaseDateLabel': 'रिलीज की तारीख'
     },
     'en-DU': {
         'searchText': 'Zoekopdracht',
@@ -46,6 +50,7 @@ const configurations = {
         'SignInLabel': 'Aanmelden',
         'SignOutLabel' : 'Afmelden',
         'NowPlayingLabel' : 'Nu aan het spelen',
+        'PopularLabel': 'populair',
         'UpcomingMoviesLabel' : 'Aankomende films',
         'TopRatedLabel' : 'Best beoordeeld',
         'RegistrationLabel' : 'Registratie',
@@ -54,7 +59,8 @@ const configurations = {
         'PlaceHolderPassword': 'Voer uw wachtwoord in',
         'NetflixNewMessage': 'Nieuw bij Netflix?',
         'SignUpNowLabel' : 'Nu aanmelden',
-        'SubmitLabel': 'Indienen'
+        'SubmitLabel': 'Indienen',
+        'ReleaseDateLabel': 'Releasedatum'
     }
 
 }

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { FETCH_USER_AUTHENTICATION, MOVIELISTURL, UPCOMINGMOVIE, TOP_RATED } from '../utils/constants';
-import { addMovieReducer, addPopularMovie, addTopRatedMovie } from '../utils/movieReducer';
+import { FETCH_USER_AUTHENTICATION, MOVIELISTURL, UPCOMINGMOVIE, TOP_RATED, POPULAR_MOVIES } from '../utils/constants';
+import { addMovieReducer, addPopularMovie, addTopRatedMovie, addNewPopularMovies } from '../utils/movieReducer';
 
 const useMovieList = () => {
     const dispatch = useDispatch();
@@ -28,6 +28,10 @@ const useMovieList = () => {
         break;
       case 'topRated':
         dispatch(addTopRatedMovie(data.results));
+        fetchMovies(POPULAR_MOVIES, 'popular');
+        break;
+      case 'popular':
+        dispatch(addNewPopularMovies(data.results));
         break;
       default: 
         break;
