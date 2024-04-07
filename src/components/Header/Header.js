@@ -53,13 +53,19 @@ const Header = () => {
           });
     }
     const checkCurrentPage = () => {
-      if (typeof window!== 'undefined' && window.location && (window.location.pathname !== '/gptSearch' )) {
+      if (typeof window!== 'undefined' && window.location && (window.location.pathname !== '/browse' )) {
         return false;
       }
       return true;
     }
+    const checkSpecificMoviePage = () => {
+      if (typeof window!== 'undefined' && window.location && (window.location.pathname !== '/browse' ) && window.location.pathname.includes('/browse')) {
+        return false;
+      }
+      return true;
+    } 
     const toggleToGptLayout = (flag) => {
-      if(flag === true) {
+     if(flag === true) {
         navigate('/gptSearch');
         dispatch(toggleSearchComponent(true));
       } else {
@@ -97,7 +103,7 @@ const Header = () => {
                 {!toggleSearch ? 
                   <div>
                       {loggedIn && <div className='flex flex-row'>
-                        <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md hidden desk:block' onClick={() =>toggleToGptLayout(true)} >{!checkCurrentPage() ? configurations[configLanguage].HomePageLabel :configurations[configLanguage].GptSearchLabel}</button>
+                        {checkSpecificMoviePage() && <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md hidden desk:block' onClick={() =>toggleToGptLayout(true)} >{!checkCurrentPage() ? configurations[configLanguage].HomePageLabel :configurations[configLanguage].GptSearchLabel}</button>}
                         {displayName && <h4 className='pt-[3px] text-[16px] text-white'>{displayName}</h4>} 
                       </div>}
                       </div>
