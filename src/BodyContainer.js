@@ -7,6 +7,7 @@ import SignUp from './components/SignUp/SignUp';
 import { Provider } from 'react-redux';
 import AppStore from './utils/store';
 import SpecificMovie from './components/SpecificMovie/index';
+import GptSearchContainer from './components/GptSearch/index';
 
 
 const BodyContainer = () => {
@@ -38,6 +39,10 @@ const createrRouter = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <SignUp />
+            },
+            {
+                path: '/gptSearch',
+                element: <GptSearchContainer />
             }
 
         ],

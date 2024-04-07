@@ -53,18 +53,20 @@ const Header = () => {
           });
     }
     const checkCurrentPage = () => {
-      if (typeof window!== 'undefined' && window.location && window.location.pathname !== '/browse') {
+      if (typeof window!== 'undefined' && window.location && (window.location.pathname !== '/gptSearch' )) {
         return false;
       }
       return true;
     }
-    const toggleToGptLayout = () => {
-      if(!checkCurrentPage()) {
+    const toggleToGptLayout = (flag) => {
+      if(flag === true) {
+        navigate('/gptSearch');
+        dispatch(toggleSearchComponent(true));
+      } else {
         navigate('/browse');
+        dispatch(toggleSearchComponent(false));
       }
-      else {
-        dispatch(toggleSearchComponent());
-      }
+  
     }
     const LanguageChange =(e) => {
       dispatch(updateLanguageReducer(e.target.value));
@@ -72,6 +74,7 @@ const Header = () => {
     const InitialPage = () => {
       console.log('loggedIn, ', email);
       if(!!loggedIn) {
+        dispatch(toggleSearchComponent(false));
         navigate('/browse');
       }else {
         navigate('/');
@@ -94,13 +97,13 @@ const Header = () => {
                 {!toggleSearch ? 
                   <div>
                       {loggedIn && <div className='flex flex-row'>
-                        <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md hidden desk:block' onClick={toggleToGptLayout} >{!checkCurrentPage() ?configurations[configLanguage].HomePageLabel :  configurations[configLanguage].GptSearchLabel}</button>
+                        <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md hidden desk:block' onClick={() =>toggleToGptLayout(true)} >{!checkCurrentPage() ? configurations[configLanguage].HomePageLabel :configurations[configLanguage].GptSearchLabel}</button>
                         {displayName && <h4 className='pt-[3px] text-[16px] text-white'>{displayName}</h4>} 
                       </div>}
                       </div>
                     :
                       <div className='flex flex-row'>
-                        <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md' onClick={toggleToGptLayout} >{configurations[configLanguage].HomePageLabel}</button>
+                        <button className='px-3 py-1 mr-[10px] bg-Btn-Primary text-white rounded-md' onClick={() => toggleToGptLayout(false)} >{configurations[configLanguage].HomePageLabel}</button>
                       </div>
                 }
                 {(toggleSearch || !loggedIn) && 

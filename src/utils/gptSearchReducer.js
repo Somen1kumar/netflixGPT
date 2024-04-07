@@ -5,14 +5,18 @@ const GptAiSlicer = createSlice({
 
     name: 'GptToggle',
     initialState: {
-        showGptLayout: false
+        showGptLayout: false,
+        filteredMovies: []
     },
     reducers: {
         toggleSearchComponent: (state,action) => {
-            state.showGptLayout = !state.showGptLayout;
+            state.showGptLayout = action.payload;
+        },
+        addFilteredMovies: (state,action) => {
+            state.filteredMovies = action.payload;
         }
     }
 });
 
-export const {toggleSearchComponent} = GptAiSlicer.actions;
+export const {toggleSearchComponent, addFilteredMovies} = GptAiSlicer.actions;
 export default GptAiSlicer.reducer;

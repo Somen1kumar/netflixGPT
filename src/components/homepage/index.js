@@ -11,9 +11,9 @@ const Homepage = () => {
   return (
     <React.Fragment>
       {
-        toggltToSearchAi ? 
-        <GptSearchContainer />
-        :
+        // toggltToSearchAi ? 
+        // <GptSearchContainer />
+        // :
         <React.Fragment>
           <MainContainers />
           <SecondaryContainer />
