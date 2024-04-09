@@ -19,7 +19,8 @@ const configurations = {
         'NetflixNewMessage': 'New to Netflix ?',
         'SignUpNowLabel' : 'SignUp Now',
         'SubmitLabel': 'Submit',
-        'ReleaseDateLabel': 'Release Date'
+        'ReleaseDateLabel': 'Release Date',
+        'MoreInfoLabel': 'More Info'
         
     },
     'en-IN': {
@@ -40,7 +41,8 @@ const configurations = {
         'NetflixNewMessage': 'नेटफ्लिक्स पर नया?',
         'SignUpNowLabel' : 'अभी साइन अप करें',
         'SubmitLabel': 'जमा करना',
-        'ReleaseDateLabel': 'रिलीज की तारीख'
+        'ReleaseDateLabel': 'रिलीज की तारीख',
+        'MoreInfoLabel': 'और जानकारी'
     },
     'en-DU': {
         'searchText': 'Zoekopdracht',
@@ -60,7 +62,8 @@ const configurations = {
         'NetflixNewMessage': 'Nieuw bij Netflix?',
         'SignUpNowLabel' : 'Nu aanmelden',
         'SubmitLabel': 'Indienen',
-        'ReleaseDateLabel': 'Releasedatum'
+        'ReleaseDateLabel': 'Releasedatum',
+        'MoreInfoLabel': 'Meer informatie'
     }
 
 }

@@ -4,6 +4,7 @@ import MovieReducer from './movieReducer';
 import toggleSearchComponent from "./gptSearchReducer";
 import ConfigureSlice from "./configSlice";
 import currentMovieReducer from "./currentMovieReducer";
+import homeVideoReducer from "./homeVideoReducer";
 
 const AppStore = configureStore({
     reducer : {
@@ -11,7 +12,8 @@ const AppStore = configureStore({
         movieHolder: MovieReducer,
         GptLayoutSwitch: toggleSearchComponent,
         Language: ConfigureSlice,
-        currentMovie: currentMovieReducer
+        currentMovie: currentMovieReducer,
+        heroMovieData: homeVideoReducer
     }
 });
 

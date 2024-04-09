@@ -21,7 +21,6 @@ const VideoPlayer = (props) => {
         const filterVideoObject = videoData && videoData.results.filter(itr => itr.type === "Trailer");
         const videoKeyObject = filterVideoObject.length > 0 ? filterVideoObject[0] : videoData.results[0];
         setVideoData(videoKeyObject)
-        console.log(videoKeyObject); 
     }
     const {key} = videoData;
   return (

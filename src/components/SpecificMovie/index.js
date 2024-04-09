@@ -1,18 +1,26 @@
-import React, { useEffect } from 'react'
+import React  from 'react'
 import { useSelector } from 'react-redux'
-import { IMAGE_URL, POSTER_URL, SPECIFICMOVIEURL } from '../../utils/constants';
+import { POSTER_URL, SPECIFICMOVIEURL } from '../../utils/constants';
 import './styles/index.css'
 import configurations from '../../utils/config';
 import useActorsList from '../../hooks/useActorsList';
 import ActorCard from './actorCard';
+import useVideoList from '../../hooks/useSpecificVideo';
+import YoutubePlayer from './YoutubePlayer';
+import { useNavigate } from 'react-router-dom';
 
 
 const Index = (props) => {
-    const currentMovie = useSelector(itr => itr.currentMovie.currentMovieData);
+    const navigate = useNavigate();
+    let currentMovie = useSelector(itr => itr.currentMovie.currentMovieData);
     const configLanguage = useSelector(itr => itr.Language.configureLanguage);
     const currentActors = useSelector(itr => itr.currentMovie.currentActorsData.cast);
-    console.log('currentMovieData',currentMovie);
+    const currentVideo = useSelector(itr => itr.currentMovie.currentMovieVideos.results);
+    if (!currentMovie) {
+      navigate('/browse');
+    }
     useActorsList(currentMovie.id);
+    useVideoList(currentMovie.id);
     const {backdrop_path,poster_path,overview,original_title,release_date} = currentMovie;
     return (
       <div className='relative'>
@@ -34,7 +42,6 @@ const Index = (props) => {
             </div>
           </div>
         </div>
-        {/* translate-y-[-71%] */}
         <div className='second-child absolute top-[100px]'>
           <div className='desk:flex'>
           <div className='left-content flex justify-center desk:block desk:pl-16'>
@@ -55,6 +62,9 @@ const Index = (props) => {
           </div>
           </div>
         
+        </div>
+        <div className='video-player-block bg-black'>
+              {currentVideo && currentVideo.length > 0 && <YoutubePlayer />}
         </div>
       </div>
     );

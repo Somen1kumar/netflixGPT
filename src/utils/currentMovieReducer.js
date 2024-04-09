@@ -6,7 +6,8 @@ const CurrentMovieReducer = createSlice({
     name: 'currentMovie',
     initialState : {
         currentMovieData: [],
-        currentActorsData: []
+        currentActorsData: [],
+        currentMovieVideos: []
     },
     reducers: {
         addCurrentMovie : (state,action) => {
@@ -14,10 +15,13 @@ const CurrentMovieReducer = createSlice({
         },
         addCurrentActors : (state,action) => {
             state.currentActorsData = action.payload;
+        },
+        addCurrentVideos: (state,action) => {
+            state.currentMovieVideos = action.payload;
         }
     }
 });
 
-export const {addCurrentMovie,addCurrentActors} = CurrentMovieReducer.actions;
+export const {addCurrentMovie,addCurrentActors, addCurrentVideos} = CurrentMovieReducer.actions;
 
 export default CurrentMovieReducer.reducer;

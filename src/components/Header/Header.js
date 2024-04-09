@@ -44,7 +44,8 @@ const Header = () => {
     const signOutUser = () => {
         const auth = getAuth();
         signOut(auth).then(() => {
-            dispatch(deleteUser())
+            dispatch(deleteUser());
+            sessionStorage.removeItem('MovieIndex');
             // navigate('/');
 
             // Sign-out successful.

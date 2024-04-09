@@ -11,7 +11,6 @@ const SecondaryContainer = () => {
   const configLanguage = useSelector(itr => itr.Language.configureLanguage);
 
 
-  console.log(movieList);
   return (
     <div className='bg-black'>
       <div className='popular container max-w-full pl-7 m-0 desk:-mt-48 relative'>

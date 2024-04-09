@@ -33,4 +33,6 @@ export const ConfigLanguage = [
     {
         'Dutch': 'en-DU'
     }
-]
+];
+
+export const SPECIFIC_MOVIE_VIDEO = 'https://api.themoviedb.org/3/movie/';

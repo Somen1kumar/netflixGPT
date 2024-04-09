@@ -77,9 +77,7 @@ const Login = (props) => {
         email: email,
         displayName: displayName
       }
-      console.log(userInfo);
       dispatch(addReducers(userInfo));
-        console.log("somen", user);
       // Profile updated!
       // ...
     }).catch((error) => {
@@ -89,7 +87,6 @@ const Login = (props) => {
       setLoader(false);
 
     });
-    console.log(user);
   })
   .catch((error) => {
     const errorCode = error.code;
