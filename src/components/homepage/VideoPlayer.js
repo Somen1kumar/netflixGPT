@@ -22,6 +22,7 @@ const VideoPlayer = (props) => {
         const videoKeyObject = filterVideoObject.length > 0 ? filterVideoObject[0] : videoData.results[0];
         setVideoData(videoKeyObject)
     }
+    if (!videoData?.key) return <div>Loading</div> 
     const {key} = videoData;
   return (
     <div>

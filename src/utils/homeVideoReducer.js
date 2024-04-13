@@ -2,20 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const HomeVideoReducer = createSlice({
-    name: 'heroVideo',
+    name: 'currentMovieCode',
     initialState: {
-        currentHeroData : [],
-        toggleBar: false
+        currentMovieCode: ''
     },
     reducers: {
-        addCurrentHeroVideo : (state,action) => {
+        addCurrentMovieCode : (state,action) => {
             state.currentHeroData = action.payload;
-        },
-        addToggleEnabler: (state,action) => {
-            state.toggleBar = action.payload;
         }
     }
 });
 
-export const {addCurrentHeroVideo, addToggleEnabler} = HomeVideoReducer.actions;
+export const {addCurrentMovieCode, } = HomeVideoReducer.actions;
 export default HomeVideoReducer.reducer;

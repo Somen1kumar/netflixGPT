@@ -20,10 +20,13 @@ const FetchSpecificVideoList = (id) => {
         const fetchData = await fetch(URL, FETCH_USER_AUTHENTICATION);
         const json = await fetchData.json();
         let totalYoutubeVideo = json?.results.filter(itr => itr.site === "YouTube");
+        let newObj = json;
         if(totalYoutubeVideo.length > 6 ){
-          totalYoutubeVideo.slice(0,6);
+          totalYoutubeVideo = totalYoutubeVideo.slice(0,6);
+          newObj.results = totalYoutubeVideo;
+          console.log("somen1",newObj);
         }
-        dispatch(addCurrentVideos(totalYoutubeVideo));
+        dispatch(addCurrentVideos(newObj));
     } 
 
 }

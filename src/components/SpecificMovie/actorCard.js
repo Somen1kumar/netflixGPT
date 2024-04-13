@@ -8,7 +8,7 @@ const ActorCard = (props) => {
     // navigate(`/browse/${movie.id}`);
   }
   return (
-    <div className='pr-4 w-36 h-[200px]'>
+    profile_path && <div className='pr-4 w-36 h-[200px]'>
         <div className='relative overflow-hidden cursor-pointer' onClick={appendDataUser}>
           <img 
           tabIndex={0}

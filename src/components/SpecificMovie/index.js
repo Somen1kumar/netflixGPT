@@ -33,7 +33,7 @@ const Index = (props) => {
           />
           <div className='absolute top-0 w-full h-screen bg-gradient-to-r desk:bg-gradient-to-b from-black '></div>
           <div>
-            <div className=' desk:flex pt-0 -mt-24 bg-black flex-col overflow-x-auto snap-x snap-mandatory no-scrollbar'>
+            <div className=' desk:flex pt-0 -mt-24 bg-black flex-col overflow-x-auto snap-x snap-mandatory'>
               <div className='flex w-max pl-4 '>
                 {
                   currentActors && currentActors.length > 0 && currentActors.map(itr => <ActorCard key={itr.id} profile_path={itr.profile_path} original_name={itr.original_name} />)

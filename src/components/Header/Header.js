@@ -92,7 +92,7 @@ const Header = () => {
     <React.Fragment>
         <div className='absolute w-full bg-gradient-to-b from-black flex justify-between z-[2]'>
             
-                <div className='w-fit desktop:w-[330px] h-[55px] m-3 cursor-pointer'>
+                <div className='w-[120px] tab:w-fit desktop:w-[330px] h-[55px] m-3 cursor-pointer'>
                     <img src={LOGO_USER}
                     alt='logo'
                     className='h-16'
@@ -141,7 +141,7 @@ const Header = () => {
         {!loggedIn && <div>
             <img src= {BACKGROUND_IMAGE}
             alt='background'
-            className='h-[100vh] mobLand:h-[100%] desktop:h-[100%] object-cover' />
+            className='h-[100vh] mobLand:h-[100%] tab:h-[100vh] desktop:h-[100%] object-cover' />
         </div>}
   </React.Fragment>
   )

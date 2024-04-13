@@ -13,7 +13,7 @@ const AppStore = configureStore({
         GptLayoutSwitch: toggleSearchComponent,
         Language: ConfigureSlice,
         currentMovie: currentMovieReducer,
-        heroMovieData: homeVideoReducer
+        currentCodeMovie: homeVideoReducer
     }
 });
 

@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import AppStore from './utils/store';
 import SpecificMovie from './components/SpecificMovie/index';
 import GptSearchContainer from './components/GptSearch/index';
+import ErrorPage from './ErrorPage';
 
 
 const BodyContainer = () => {
@@ -46,7 +47,7 @@ const createrRouter = createBrowserRouter([
             }
 
         ],
-        errorElement: <h1>Loading</h1>
+        errorElement: <ErrorPage />
     }
 ]);
 

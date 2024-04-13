@@ -22,7 +22,7 @@ const VideoPlayer = () => {
     }
     // if(!videoData[0]) return;
   return (
-    <div className='video-list-container flex'>
+    <div className='video-list-container w-full pt-9 pb-9'>
         {
             <SpecificVideoPlayer />
         }
